@@ -1,0 +1,31 @@
+<section fxLayout="column" fxLayoutAlign="center center" style="margin-top: 20px;">
+    <mat-card>
+      <mat-card-header>
+        <h2>Add {{type}}</h2>
+      </mat-card-header>
+
+      <form fxLayout="column" fxLayoutAlign="center start" fxLayoutGap="10px" #f="ngForm" (ngSubmit)="onSignup(f)">
+        <mat-form-field>
+          <input type="text" matInput placeholder="Name" ngModel #nameInput="ngModel" name="name" required>
+          <mat-error *ngIf="nameInput.hasError('required')">Name is required.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Gender" #yearInput="ngModel" ngModel name="gender" required>
+          <mat-error *ngIf="yearInput.hasError('required')">Gender is required.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input type="text" matInput placeholder="DOB" #plotInput="ngModel" ngModel name="dob" required>
+          <mat-error *ngIf="plotInput.hasError('required')">DOB is required.</mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input type="text" matInput placeholder="Bio" #posterInput="ngModel" ngModel name="bio" required>
+          <mat-error *ngIf="posterInput.hasError('required')">Poster is required.</mat-error>
+        </mat-form-field>
+        <mat-progress-spinner diameter="35" *ngIf="isLoading" mode="indeterminate"></mat-progress-spinner>
+        <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
+          <button *ngIf="!isLoading" type="submit" color="primary" [disabled]="f.invalid" mat-raised-button>Add</button>
+          <button (click)="OnCancel()" color="primary" mat-raised-button>Cancel</button>
+        </div>
+      </form>
+    </mat-card>
+  </section>

@@ -1,0 +1,37 @@
+<section fxLayout="column" fxLayoutAlign="center center" style="margin-top: 20px;">
+  <mat-card>
+    <form fxLayout="column" fxLayoutAlign="center start" fxLayoutGap="10px" #f="ngForm" (ngSubmit)="onSignup(f)">
+      <mat-form-field>
+        <input type="text" matInput placeholder="Movie Name" ngModel #nameInput="ngModel" name="name" required>
+        <mat-error *ngIf="nameInput.hasError('required')">Name is required.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="number" matInput placeholder="Year" #yearInput="ngModel" ngModel name="year" required>
+        <mat-error *ngIf="yearInput.hasError('required')">Year is required.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Plot" #plotInput="ngModel" ngModel name="plot" required>
+        <mat-error *ngIf="plotInput.hasError('required')">Plot is required.</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Poster URL" #posterInput="ngModel" ngModel name="poster" required>
+        <mat-error *ngIf="posterInput.hasError('required')">Poster is required.</mat-error>
+      </mat-form-field>
+      <button mat-button (click)="startDialog('producer')">Add Producer</button>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Producer" #producerInput="ngModel" ngModel name="producer" required>
+        <mat-error *ngIf="producerInput.hasError('required')">Producer is required.</mat-error>
+      </mat-form-field>
+      <button mat-button (click)="startDialog('actor')">Add Actor</button>
+      <mat-form-field>
+        <input type="text" matInput placeholder="Cast" #castInput="ngModel" ngModel name="cast" required>
+        <mat-error *ngIf="castInput.hasError('required')">Actor is required.</mat-error>
+      </mat-form-field>
+      <mat-progress-spinner diameter="35" *ngIf="isLoading" mode="indeterminate"></mat-progress-spinner>
+      <div fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
+        <button *ngIf="!isLoading" type="submit" color="primary" [disabled]="f.invalid" mat-raised-button>Add</button>
+        <button (click)="OnCancel()" color="primary" mat-raised-button>Cancel</button>
+      </div>
+    </form>
+  </mat-card>
+</section>

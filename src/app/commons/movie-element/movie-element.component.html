@@ -1,0 +1,19 @@
+<mat-card class="movie-card">
+  <mat-card-content fxLayout="row" fxLayoutAlign="center center" fxLayoutGap="20px">
+    <div>
+      <img height="300px" width="200px" src="https://images-na.ssl-images-amazon.com/images/I/71z1-I96q8L._SY606_.jpg" alt="matrix">
+    </div>
+    <div fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center start">
+      <h1>Matrix</h1>
+      <h4>1999</h4>
+      <p>plot points....</p>
+      <p>Produced by:Producer</p>
+      <p>cast:CAst1,Cast2,Cast3</p>
+      <div>
+        <button color="accent" (click)="editMovie(1)" mat-raised-button>
+          Edit
+        </button>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
